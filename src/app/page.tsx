@@ -1,10 +1,18 @@
-import {CasinoHorizontalCard, CasinoVerticalCard} from "@lib/casino";
+'use client';
+import {useEffect, useState} from "react";
+import {Game, GameCarousel, GameHorizontalCard, GameVerticalCard, getGames} from "@lib/casino";
 
 export default function Home() {
+  const [games, setGames] = useState<Game[]>();
+
+  useEffect(() => {
+    getGames().then(setGames);
+  }, []);
+
   return (
     <div>
       <div>
-        <CasinoHorizontalCard game={{
+        <GameHorizontalCard game={{
           name: "Game 1",
           description: "Description 1",
           image: "https://via.placeholder.com/150",
@@ -14,7 +22,7 @@ export default function Home() {
         }} />
       </div>
       <div>
-        <CasinoVerticalCard game={{
+        <GameVerticalCard game={{
           name: "Game 1",
           description: "Description 1",
           image: "https://via.placeholder.com/150",
@@ -23,6 +31,9 @@ export default function Home() {
           providerId: "1",
         }} />
       </div>
+      {games && <div>
+        <GameCarousel games={games} />
+      </div>}
     </div>
   );
 }

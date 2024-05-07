@@ -1,2 +1,3 @@
-export * from './CasinoHorizontalCard';
-export * from './CasinoVerticalCard';
+export * from './GameHorizontalCard';
+export * from './GameVerticalCard';
+export * from './GameCarousel';

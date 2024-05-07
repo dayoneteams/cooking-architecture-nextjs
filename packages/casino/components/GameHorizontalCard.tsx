@@ -1,6 +1,6 @@
 import {Game} from "../types";
 
-export function CasinoHorizontalCard({game}: {game: Game}) {
+export function GameHorizontalCard({game}: {game: Game}) {
   return (
     <div className="card" style={{width: "500px"}}>
       <div className="card-body">
