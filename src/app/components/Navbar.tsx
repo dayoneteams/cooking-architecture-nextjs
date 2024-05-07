@@ -1,8 +1,9 @@
 'use client';
 import {useAuth} from "@lib/auth";
+import {getDisplayName} from "@lib/common";
 
 export function Navbar() {
-  const {loginUser} = useAuth();
+  const {loginUser, logout} = useAuth();
 
   return (
     <nav>
@@ -10,8 +11,8 @@ export function Navbar() {
         {loginUser
           ? (
             <div>
-              <span>{loginUser.email}</span>
-              <span>{loginUser.name}</span>
+              <span>{getDisplayName(loginUser)}</span>
+              <button className="btn btn-danger" onClick={logout}>Logout</button>
             </div>
           ) : (
             <div>Not yet login</div>

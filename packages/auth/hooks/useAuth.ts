@@ -1,10 +1,11 @@
 import {useContext} from "react";
-import {AuthContext} from "@lib/auth/providers/AuthProvider";
+import {AuthContext} from "../providers/AuthProvider";
 
 export function useAuth() {
-  const {loginUser} = useContext(AuthContext);
+  const {loginUser, logout} = useContext(AuthContext);
 
   return {
     loginUser,
+    logout,
   };
 }
